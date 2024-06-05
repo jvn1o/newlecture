@@ -1,0 +1,22 @@
+git config --global user.name "jvn1o"			// 깃허브 유저 이름 설정
+git config --global user.email "junok0987@naver.com"	// 깃허브 유저 이메일 설정
+
+git config --global user.name		// 깃허브 유저 이름 확인 
+git config --global user.email		// 깃허브 유저 이메일 확인
+
+git config --global init.defaultBranch main		// 브랜치 이름 변경
+git config --global init.defaultBranch	
+
+
+git init		// 폴더 경로와 git 연동
+git status		// git 현재 상태 확인
+git add filename.py	// 버전에 파일 옮기기
+git add .		// 버전에 모든 파일 옮기기
+git rm --cached <file>	//git add 취소
+
+git commit	// vi 입력모드 진입(커밋 메시지 따로 입력)
+git commit -m "filename.py"	// 커밋 메시지 한번에 작성
+git log		// 커밋 이력 확인
+
+git commit -am "filename.py"		// add와 commit을 동시에 하는 커맨드
+
