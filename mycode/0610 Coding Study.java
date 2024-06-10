@@ -1,0 +1,23 @@
+public class App {
+    public static void main(String[] args) throws Exception {
+
+        long x = 1234567890;
+        short y = 12345;
+        /* long z = x; z의 공간을 키우거나*/
+        int z = (int)x; /* x의 int형으로 명시적인 변환하는 방법 */
+        
+        double a = x; 
+        /* float a = x; RUN에서 오류가 발생하지않아도 틀릴 수 있다.
+        float은 long의 비트를 전부 출력하기에 작다, 즉 double로 표현*/
+        System.out.printf("%f\n", a);
+
+        int b = (int) (3.0f/3.0d);
+        double c = 10.0/3; /* 10만 입력하면 3.0으로 계산되어 답도 3 출력 */
+        System.out.println(c);
+        
+
+        int age = 32;
+        boolean r = age >= 20 && age <30;
+        System.out.println(r);                                                                                                                                                                                                                                                                       
+    }
+}
