@@ -98,7 +98,7 @@ int x = 5;
 boolean result = [                                          ]; // x가 다음 범위에 포함된 값인가요?
 System.out.println(result);
 
--> -2 > x & (2 <= x && x <= 4)
+-> -2 > x || (2 <= x && x <= 4)
 
 연산의 빈 칸을 작성하시오:
 int x = 5;
