@@ -1,0 +1,100 @@
+6회차 조별 스터디 (개인 풀이)
+
+프로그래밍을 할 때는 씨언어, 파이썬, 자바스크립트 언어와 Windows, IOS, Android 등의 플랫폼을 함께 사용한다. 언어와 플랫폼 중에 만들어진 시기로 본다면 플랫폼이 먼저 만들어졌을까? 아니면 언어가 먼저 만들어졌을까?  답을 쓰고, 그렇게 생각하는 이유를 쓰시오.:
+플랫폼이 먼저다. 플랫폼을 만들고 플랫폼에 사용할 표준언어를 만들게 되었다.
+
+다음 객체 들은 언어가 제공하는 객체 형식과 자바 플랫폼이 제공하는 객체 형식이 섞여 있다. 각 객체 형식을 보고 언어와 플랫폼으로 형식을 분류하고 그 분류에는 어떤 기능적인 차이가 있다고 생각되는지 자신의 생각을 쓰시오.:
+String, FileOutputStream, PrintStream, Integer, Math
+언어 - Integer, String, Math -> 데이터를 다루는 것에 중점
+플랫폼 - FileOutputStream, PrintStream -> 입출력 기능을 수행
+
+모든 객체는 new 연산자를 통해서 객체화된다. 그런데 객체화를 다른 용어로 바꾸어 말하기도 하는데, 어떤 용어로 바꾸어 말할 수 있을까? 아는대로 쓰시오.:
+인스턴스화, 객체의 실체화
+
+클래스 경로에 res 폴더를 만들고 그 폴더에 score.data 파일을 만들려고 한다. FileOutputStream 형식의 객체를 fos 이름으로 생성하는 코드를 작성하시오.:
+FileOutputStream fos = new FileOutputStream(“res/score.data”);
+
+앞에서 생성한 fos 객체를 사용해도 원하는 값을 출력할 수 있는데 PrintStream 객체를 이용하는 이유는?:
+문자열로 출력이 가능함
+
+PrintStream 객체를 이용할 때 사용할 수 있는 기본 함수는 다음과 같다.
+write()
+print()
+println()
+printf()
+이 중에서 write()와 print() 계열 함수의 기능적인 차이는?:
+write()는 숫자로 출력 print() 계열은 문자로 출력
+
+다음은 출력에 사용될 변수들이다.
+int kor=30;
+int eng=50;
+int math=50;
+int total=kor+eng+math;
+double avg=total/3.0;
+위의 변수들을 다음처럼 출력하는 코드를 작성하시오.:
+┌───────────────────────────┐
+│ 30|  50|  50|  130|  43.33|
+└───────────────────────────┘
+(각, 칸의 너비는 6 문자이고 소수점은 2자리로 한정한다.)
+System.out.printf(“%6d%6d%6d%6d%6.2f”,kor,eng,math,total,avg);
+
+다음은 수업시간에 다루었던 성적을 출력하는 코드이다. 
+int kor1;
+int kor2;
+int kor3;
+int total;
+double avg;
+
+
+kor1=30;
+kor2=40;
+kor3=100;
+
+
+total = kor1+kor2+kor3;
+avg=total/3.0;
+
+
+System.out.println("┌───────────────────────────────┐");
+System.out.println("│            성적출력           │");
+System.out.println("└───────────────────────────────┘");
+
+
+System.out.println("kor1 : " + kor1);        
+System.out.println("kor2 : " + kor2);        
+System.out.println("kor3 : " + kor3);
+System.out.println("total : " + total);
+System.out.printf("avg : %.2f", avg);
+
+
+
+
+이 코드에서 사용자 화면을 출력하는 부분을 다음처럼 format 문자열을 최대한 활용하면 다음처럼 작성할 수도 있다.
+
+String view = """
+        ┌───────────────────────────────┐
+        │            성적출력           │
+        └───────────────────────────────┘
+
+
+        kor1 : %d
+        kor2 : %d
+        kor3 : %d
+        total : %d
+        avg : %.2f
+        """;
+System.out.println();
+System.out.printf(view, kor1, kor2, kor3, total, avg);
+System.out.println();
+
+
+
+
+두 가지 코드를 모두 작성해보고 실제로 사용해본 결과 어떤 코드 방식어 더 좋았는지를 조별 비율(이견이 있을 경우 몇 대 몇)을 쓰고 그 이유를 각각 쓰시오.
+1번 : 
+첫번째 코드는 %-20d 같은 연산자를 적용했을 때 쉽게 확인 가능하다. 그래서 오류를 쉽게 파악할 수 있다,
+아래 코드는 에러가 났을 경우 확인하기 어렵다. 코드 중복이 적다. 사용자 입장에서 화면이 깔끔하다.
+
+2번 :
+우선 내가 출력하고자하는 결과를, 화면을 통하여 직관적으로 알아볼 수 있다는 장점이 있다. 
+또한 특수기호 & 언어 & 폰트마다 바이트 크기가 달라 출력하고자 하는 규격의 모양을 맞추기 힘들 수 있는데, 이럴때 따로 계산할 필요 없이 손쉽게 조정할 수 있다는 장점을 가지고 있다.
