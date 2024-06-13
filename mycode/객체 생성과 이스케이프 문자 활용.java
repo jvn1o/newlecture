@@ -67,3 +67,4 @@ public class App {
         System.out.printf("\n 평균: %.2f점",평균);
     }
 }
+
