@@ -1,0 +1,64 @@
+res/data1.txt 데이터 파일에 값을 저장하기 위한 코드를 작성하려고 한다.
+// 값을 바이너리로 저장하기
+{
+int x = 10;
+int y = 20;
+
+1. 위의 두 변수의 값을 바이너리로 저장하는 코드를 작성하시오.:
+FileOutputStream fos = new FileOutputStream(“res/data1.txt”);
+fos.write(x);
+fos.write(y);
+}
+
+2. 데이터 파일(res/data1.txt)의 크기가 얼마인지 쓰시오.:
+
+2 byte
+
+res/data2.txt 데이터 파일에 값을 저장하기 위한 코드를 작성하려고 한다.
+// 값을 Text로 저장하기
+{
+int x = 10;
+int y = 20;
+
+3. 위의 두 변수의 값을 text로 저장하는 코드를 작성하시오. 두 값 사이에는 어떠한 구분자도 포함하지 않는다.:
+
+FileOutputStream fos = new FileOutputStream("res/data2.txt");
+PrintStream ps = new PrintStream(fos);
+ps.print(x);
+ps.print(y);
+
+4. 데이터 파일(res/data2.txt)의 크기가 얼마인지 쓰시오.:
+
+4 byte
+
+5. 숫자를 저장할 때 binary와 text 중에 어떤 방법으로 저장하는 것이 효율적인지 그리고 왜 그렇게 생각하는지 쓰시오.
+->
+
+Binary, binary가 text보다 1 byte 당 숫자의 표현할 수 있는 범위가 넓기 때문이다.
+(text의 byte 당 표현 숫자 범위: 0~9)
+
+res/data3.txt 데이터 파일에 값을 저장하기 위한 코드를 작성하려고 한다.
+위의 Binary 로 저장하기 코드를 복사/붙여넣기 한 후에 x, y 값을  다음으로 변경한 후에 다시 실행해본다.
+int x = 127;
+int y = 256;
+
+7. 위의 결과를 확인하면 두 번째 y 값이 손실된 것을 알 수 있다. 그 이유를 설명하시오.:
+8자리의 비트로 표현할 수 있는 최대값이 255이므로, 하위 8비트인 0만 출력된다.
+
+8. y 값이 손실되지 않으려면 어떤 조치를 해야 하는가?:
+4바이트 int를 1바이트 씩 쪼개서 저장한다
+int x = 127;
+int y = 256;
+				
+FileOutputStream fos = new FileOutputStream("res/data3.txt");
+DataOutputStream dos = new DataOutputStream(fos);
+dos.writeChar(x);
+dos.writeChar(y);
+
+9. x 값을 128로 저장하면 올바른 값이 저장되는지 확인하시오. 그렇지 않다면 그 이유를 설명하시오.:
+올바른 값이 저장된다.
+Byte로 읽으면 -128(따라서 맨앞에 0을 추가하여 읽도록하면 -로 헷갈리지않는다.)
+Int로 읽으면 128
+
+10. 4byte 정수를 저장할 때 binary와 text 중에 어떤 방법으로 저장하는 것이 효율적인지 그리고 왜 그렇게 생각하는지 쓰시오.:
+숫자가 커질수록 byte 대비 저장할 수 있는 범위가 커지므로 binary로 저장하는 것이 효율적이다.
