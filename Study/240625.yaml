@@ -105,7 +105,8 @@ JSON - 사람이 이해하기 가장 쉽다 전송 속도가 매우 빠르다/ �
 XML
 HTML
 XHTML
-SGML <-
+SGML
+-> XML과 SGML
 
 HTML과 XHTML의 차이점은 무엇인지 아는대로 쓰시오.:
 HTML는 문법을 안지켜도 실행이 되지만 Xhtml는 실행되지 않는다
