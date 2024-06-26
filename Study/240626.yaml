@@ -1,0 +1,27 @@
+*Socket_Programming
+
+
+Socket:
+우체통
+
+OS 7계층:
+Application
+Presentation
+Session
+Transport
+Network
+Datalink
+Physical
+
+TCP:
+연결지향형, 특정 대상의 전용 우체통
+n명의 클라이언트에게 n개의 버퍼를 만들어주어야 하기에, 손실률이 적지만 느리다.
+아무리 수신이 어렵더라도 완료할때까지 시도한다.
+
+UDP:
+연결비지향형, 게임과 같이 빠르고 효율적 통신 필요한 실시간 애플리케이션
+DMZ(비무장 지대)를 두어 외부와 통신하며 내부 네트워크를 통제
+
+Server/Client:
+서버에서 수신을 감지하는 소켓은 계속 유지하며, 클라이언트와 연결하는 방식의 형태이다.
+
